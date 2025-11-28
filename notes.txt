@@ -15,15 +15,19 @@ Einfaches Featureengineering:
 Komplexes Featureengineering:
     - FamilySize = (LastName * GroupId) + (GroupId * Cabin)
         - Drop: LastName, GroupId
+        - Bin: Small, Medium, Large -> Ordinal
     - Cabin: Deck und Side -> Deck = Erster String, Side = Dritter String
         - Drop: Cabin, Side (geringer Mehrwert)
     - Balance = (RoomService + FoodCourt + ShoppingMall + Spa + VRDeck)
-        - Drop: RoomService, FoodCourt, ShoppingMall, Spa, VRDeck
+        - Drop: Alle behalten
+        - Bin: qcut
         - Fill: SimpeleImputer mit median
     - CryoSleep, VIP: zum Integer umwandeln 
         Fill: SimpeleImputer mit median
     - Duration: 
     - Drop: PassengerId, Transported
+
+
 
 Behalten:
     - Deck/Trans: Deck T,E hat hohe Überlebungschancen und B,C hat geringe, sonst ~50/50.
